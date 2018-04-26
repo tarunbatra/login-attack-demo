@@ -1,0 +1,11 @@
+{
+  "name": "login-attack-demo",
+  "version": "1.0.0",
+  "description": "Demo: dictionary attack exploiting error messages during login",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Tarun Batra <tarun.batra00@gmail.com>",
+  "license": "MIT"
+}
