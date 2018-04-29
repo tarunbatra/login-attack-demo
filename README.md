@@ -18,28 +18,25 @@ TRIES (naive): 1083
 
 ## Components
 
-### Dictionary
-Dictionary is a collection of 1575 most commonly used passwords based on
-[danielmiessler/SecLists][dictionary-source].
+#### Dictionary
+A collection of 1575 most commonly used passwords based on [danielmiessler/SecLists][dictionary-source].
 
-### Naive server
-A server which gives out specific error messages based on the failing stage of
-the login process. Like if the password is invalid, it'd say "Invalid password".
+#### Naive server
+A server which gives out specific error messages based on the failing stage of the login process. If the username is invalid, it'd say `Invalid username`.
 
-### Smart server
-A server which gives out vague error messages on failure of the login process.
-Like if the password is invalid and not the username, it'd still say
-"Invalid username/password".
+#### Smart server
+A server which gives out vague error messages on failure of the login process. If the password is invalid and not the username, it'd still say `Invalid username/password`.
 
-### Attacker
-A client which uses the dictionary to generate a pair of username and password,
-and uses them to break into the system. It also analyzes the error messages as:
+#### Attacker
+A hostile client which uses the dictionary to generate a pair of username and password and uses them to break into the system. It also analyzes the error messages on the following rules:
 
-* An error message saying the pssword was invalid, indicates the username was
-    correct
-* An error message saying the username was invalid, indicates, no combination of
-    password will result in a successful login.
+* An error message saying the password was invalid, indicates the username was a valid one.
+* An error message saying the username was invalid, indicates no combination of password will result in a successful login.
 * An inconclusive error message is ignored and the next combination is tried.
+
+## Assumptions
+
+* It is assumed that the dictionay defines the sample space for a valid username and password.
 
 ## License
 MIT
